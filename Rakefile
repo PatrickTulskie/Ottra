@@ -8,7 +8,7 @@ Echoe.new('ottra', '0.1.0') do |p|
   p.author = 'Patrick Tulskie'
   p.email = 'PatrickTulskie@gmail.com'
   p.ignore_pattern = ['tmp/*', 'script/*', 'lib/main.rb']
-  p.development_dependencies = []
+  p.dependencies = ['shvets-google_translate', 'googletranslate', 'tranexp']
 end
 
 Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].sort.each { |ext| load ext }

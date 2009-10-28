@@ -13,23 +13,20 @@ Ottra is different - it uses a bunch of different gems in an attempt to translat
 h2. Sample Code
 
 Default, simple example.
-<pre><code>
-require 'ottra'
+<pre><code>require 'ottra'
 t = Ottra.new
 puts t.translate_text('Hello world!', 'it')
 => Ciao mondo!
 </code></pre>
 
 Maybe you only want to translate a single string and then send t off to the garbage collector.  It might be best to avoid sorting the translators by speed.
-<pre><code>
-t = Ottra.new({:no_sorting => true})+
+<pre><code>t = Ottra.new({:no_sorting => true})
 puts t.translate_text('Hello world!', 'it')
 => Ciao mondo!
 </code></pre>
 
 If your starting language is not English then you need to specify it as the second parameter.
-<pre><code>
-puts t.translate_text('Ciao mondo!', 'en', 'it')
+<pre><code>puts t.translate_text('Ciao mondo!', 'en', 'it')
 => Hello World!
 </code></pre>
 
