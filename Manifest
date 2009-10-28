@@ -1,0 +1,9 @@
+Manifest
+README.rdoc
+Rakefile
+lib/config/languages.yml
+lib/ottra.rb
+lib/translator_base.rb
+lib/translators/google_translate.rb
+lib/translators/shvets_google_translate.rb
+lib/translators/tranexp_translate.rb
