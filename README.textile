@@ -1,0 +1,59 @@
+h1. Ottra
+
+One Translator To Rule them All!
+
+h2. The Problem
+
+The problem with language translation in ruby right now is that everyone does it differently.  If you want to use an external source to translate text in your application then you need to write you code for a specific gem.  What do you do if you realize, post implementation, that the gem doesn't support the language combinations or types that you need?  That leaves you in quite a pickle.
+
+h2. The Game Changer
+
+Ottra is different - it uses a bunch of different gems in an attempt to translate your text.  When you first create a new instance of Ottra, it runs a test translation to each of the different gems it supports and then orders them by whichever was quickest.  Then it goes through each of them trying to translate your text.  The best part?  You write your code for Ottra and then let the gem handle the oddities among the other gems.  It's that simple.
+
+h2. Sample Code
+
+Default, simple example.
+<pre><code>
+require 'ottra'
+t = Ottra.new
+puts t.translate_text('Hello world!', 'it')
+=> Ciao mondo!
+</code></pre>
+
+Maybe you only want to translate a single string and then send t off to the garbage collector.  It might be best to avoid sorting the translators by speed.
+<pre><code>
+t = Ottra.new({:no_sorting => true})+
+puts t.translate_text('Hello world!', 'it')
+=> Ciao mondo!
+</code></pre>
+
+If your starting language is not English then you need to specify it as the second parameter.
+<pre><code>
+puts t.translate_text('Ciao mondo!', 'en', 'it')
+=> Hello World!
+</code></pre>
+
+h2. Supported Translation Gems
+
+Currently, Ottra supports shvets-google_translate, googletranslate, and tranexp.  There are tons of other translation gems out there, but I haven't gotten a chance to build in support yet.
+
+h2. But...
+
+Github is social coding!  Got a favorite translation gem?  Fork this project, add your support, and send me a pull request!
+
+h2. What About Tests?
+
+I didn't write any.  
+
+h2. But But But!  That's Blasphemy!
+
+Too bad.  Fork, write, and send me a pull request.
+
+h2. Other Notes
+
+This stuff was originally written as part of the Whatever You Say project (rails app that provides chats with on the fly translation) and then ported to an individual gem.  It's pretty rough around the edges in all aspects.  It is missing things like:
+1. Tests
+2. Installing the supported gems when you install this gem
+3. Bacon
+
+Otherwise, it works pretty well.  Give it a try and if you find something you can't/won't fix then add a github ticket.

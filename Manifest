@@ -1,5 +1,5 @@
 Manifest
-README.rdoc
+README.textile
 Rakefile
 lib/config/languages.yml
 lib/ottra.rb
